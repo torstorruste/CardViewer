@@ -41,5 +41,14 @@ namespace CardViewer.Pages
         {
             return Rounds.GroupBy(x => x.Date.DayOfWeek).ToList().OrderBy(x => x.Key);
         }
+
+        public IEnumerable<IGrouping<int, Round>> GroupByNumPlayers()
+        {
+            return Rounds.GroupBy(x => x.Scores.Count()).ToList().OrderBy(x => x.Key);
+        }
+
+        public IEnumerable<IGrouping<Player, Score>> GroupByPlayer() {
+            return Rounds.SelectMany(x=>x.Scores).GroupBy(x=>x.Player).OrderBy(x=>x.Key.Name);
+        }
     }
 }

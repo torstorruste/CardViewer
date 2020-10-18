@@ -44,4 +44,36 @@
             }
         </tr>
     </table>
+
+    <h2>Round by number of players</h2>
+    <table>
+        <tr>
+            @foreach(var group in GroupByNumPlayers())
+            {
+                <td>@group.Key</td>
+            }
+        </tr>
+        <tr>
+            @foreach(var group in GroupByNumPlayers())
+            {
+                <td>@group.Count()</td>
+            }
+        </tr>
+    </table>
+
+    <h2>Scores by player</h2>
+    <table>
+        <tr>
+            <th>Player</th><th>Num</th><th>Max</th><th>Min</th><th>Avg</th>
+        </tr>
+        @foreach(var player in GroupByPlayer()) {
+            <tr>
+                <td>@player.Key.Name</td>
+                <td>@player.Count()</td>
+                <td>@player.Max(x=>x.Scores.Sum())</td>
+                <td>@player.Min(x=>x.Scores.Sum())</td>
+                <td>@Math.Round(player.Average(x=>x.Scores.Sum()))</td>
+            </tr>
+        }
+    </table>
 }
