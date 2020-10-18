@@ -2,7 +2,7 @@
     <h2>@Round.Date.ToString("yyyy-MM-dd")</h2>
     <table>
         <tr>
-            <th class="borderless"></th>
+            <th class="borderless rightalign"></th>
             @foreach (var score in Round.Scores)
             {
                 <th>@score.Player.Name</th>
@@ -16,5 +16,6 @@
         <SingleRow Round="@Round" RoundName=".--" RoundNumber=6/>
         <SingleRow Round="@Round" RoundName="---" RoundNumber=7/>
         <SumRow Round="@Round"/>
+        <PlacementRow Round="@Round" />
     </table>
 </div>

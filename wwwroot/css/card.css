@@ -13,6 +13,7 @@ td.victory {
 .borderless {
     border-color: white;
     border-style: none;
+    text-align: center;
 }
 .container {
     display: flex;
@@ -25,4 +26,17 @@ td.victory {
 .round {
     width: 350px;
     margin: 10px;
+}
+.placement {
+  border-radius: 50%;
+  color: #fff;
+  text-align: center;
+  background: #000;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  display: inline-block;
+}
+.rightalign {
+    text-align: right;
 }

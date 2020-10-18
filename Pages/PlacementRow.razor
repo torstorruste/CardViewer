@@ -1,0 +1,7 @@
+<tr>
+    <td class="borderless"></td>
+    @foreach (var score in Round.Scores)
+    {
+        <td class="borderless"><span class="placement">@GetPosition(score.Player)</span></td>
+    }
+</tr>
