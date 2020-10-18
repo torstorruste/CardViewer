@@ -1,0 +1,47 @@
+@page "/statistics"
+
+@if(Rounds != null) {
+    <h2>Rounds by year</h2>
+    <table>
+        <tr>
+            @foreach(var group in GroupRoundsByYear()) {
+                <td>@group.Key</td>
+            }
+        </tr>
+        <tr>
+            @foreach (var group in GroupRoundsByYear()) {
+                <td>@group.Count()</td>
+            }
+        </tr>
+    </table>
+
+    <h2>Rounds by month</h2>
+    <table>
+        <tr>
+            @foreach(var group in GroupRoundsByMonth()) {
+                <td>@group.Key</td>
+            }
+        </tr>
+        <tr>
+            @foreach(var group in GroupRoundsByMonth()) {
+                <td>@group.Count()</td>
+            }
+        </tr>
+    </table>
+
+    <h2>Rounds by day of week</h2>
+    <table>
+        <tr>
+            @foreach (var group in GroupByDayOfWeek())
+            {
+                <td>@group.Key</td>
+            }
+        </tr>
+        <tr>
+            @foreach (var group in GroupByDayOfWeek())
+            {
+                <td>@group.Count()</td>
+            }
+        </tr>
+    </table>
+}
