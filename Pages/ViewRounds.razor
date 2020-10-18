@@ -1,8 +1,10 @@
 ﻿@page "/"
 
+<div class="container">
 @if(Rounds != null) {
     @foreach (var round in Rounds)
     {
         <ViewRound Round="@round" />
     }
 }
+</div>
