@@ -37,6 +37,7 @@ td.victory {
   text-align: center;
   display: inline-block;
 }
-.rightalign {
+.roundName {
     text-align: right;
+    font-weight: bold;
 }
