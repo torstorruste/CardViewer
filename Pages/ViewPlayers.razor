@@ -1,0 +1,9 @@
+@page "/players"
+
+@if(Players != null) {
+    <ul>
+    @foreach(var player in Players) {
+        <li>@player.Name</li>
+    }
+    </ul>
+}

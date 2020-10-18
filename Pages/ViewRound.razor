@@ -1,0 +1,20 @@
+<div>
+    <h2>@Round.Date.ToString("yyyy-MM-dd")</h2>
+    <table>
+        <tr>
+            <th>Round</th>
+            @foreach (var score in Round.Scores)
+            {
+                <th>@score.Player.Name</th>
+            }
+        </tr>
+        <SingleRow Round="@Round" RoundName=".." RoundNumber=1/>
+        <SingleRow Round="@Round" RoundName=".-" RoundNumber=2/>
+        <SingleRow Round="@Round" RoundName="--" RoundNumber=3/>
+        <SingleRow Round="@Round" RoundName="..." RoundNumber=4/>
+        <SingleRow Round="@Round" RoundName="..-" RoundNumber=5/>
+        <SingleRow Round="@Round" RoundName=".--" RoundNumber=6/>
+        <SingleRow Round="@Round" RoundName="---" RoundNumber=7/>
+        <SumRow Round="@Round"/>
+    </table>
+</div>
