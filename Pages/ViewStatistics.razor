@@ -1,4 +1,5 @@
 @page "/statistics"
+@page "/statistics/{PlayerId:int}"
 
 @if(Rounds != null) {
     <h2>Rounds by year</h2>
@@ -68,7 +69,7 @@
         </tr>
         @foreach(var player in GroupByPlayer()) {
             <tr>
-                <td>@player.Key.Name</td>
+                <td><a href="/statistics/@(player.Key.Id)">@player.Key.Name</a></td>
                 <td>@player.Count()</td>
                 <td>@player.Max(x=>x.Scores.Sum())</td>
                 <td>@player.Min(x=>x.Scores.Sum())</td>

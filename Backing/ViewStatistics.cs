@@ -13,17 +13,31 @@ namespace CardViewer.Pages
         [Inject]
         public IRoundService RoundService { get; set; }
 
+        private List<Round> AllRounds;
         private List<Round> Rounds;
+
+        [Parameter]
+        public int? PlayerId { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
             try
             {
-                Rounds = await RoundService.GetRounds();
+                AllRounds = await RoundService.GetRounds();
+                
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
+            }
+        }
+
+        protected override void OnParametersSet() {
+            Console.WriteLine($"OnParametersSet, PlayerId={PlayerId}");
+            if(PlayerId!=null) {
+                Rounds = AllRounds.Where(r=>r.Scores.Any(s=>s.Player.Id==PlayerId)).ToList();
+            } else {
+                Rounds = AllRounds;
             }
         }
 
@@ -47,8 +61,9 @@ namespace CardViewer.Pages
             return Rounds.GroupBy(x => x.Scores.Count()).ToList().OrderBy(x => x.Key);
         }
 
-        public IEnumerable<IGrouping<Player, Score>> GroupByPlayer() {
-            return Rounds.SelectMany(x=>x.Scores).GroupBy(x=>x.Player).OrderBy(x=>x.Key.Name);
+        public IEnumerable<IGrouping<Player, Score>> GroupByPlayer()
+        {
+            return Rounds.SelectMany(x => x.Scores).GroupBy(x => x.Player).OrderBy(x => x.Key.Name);
         }
     }
 }

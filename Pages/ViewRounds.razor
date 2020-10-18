@@ -1,7 +1,9 @@
 ﻿@page "/"
+@page "/rounds"
+@page "/rounds/{PlayerId:int}"
 
 <div class="container">
-@if(Rounds != null) {
+@if(AllRounds != null) {
     @foreach (var round in Rounds)
     {
         <ViewRound Round="@round" />

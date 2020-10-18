@@ -5,7 +5,7 @@
             <th class="borderless roundName"></th>
             @foreach (var score in Round.Scores)
             {
-                <th>@score.Player.Name</th>
+                <th><a href="rounds/@(score.Player.Id)">@score.Player.Name</a></th>
             }
         </tr>
         <SingleRow Round="@Round" RoundName="∙∙∙" RoundNumber=1/>
