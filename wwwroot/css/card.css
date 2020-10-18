@@ -1,7 +1,11 @@
 table, td, th {
-    border: 1px solid back;
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
 }
 table {
     border-collapse: collapse;
-    border: 1px solid back;
+}
+td.victory {
+    background-color: grey;
 }

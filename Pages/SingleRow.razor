@@ -3,6 +3,10 @@
     <td>@RoundName</td>
     @foreach (var score in Round.Scores)
     {
-        <td>@GetScore(score, RoundNumber)</td>
+        @if(GetScore(score, RoundNumber)==0) {
+            <td class="victory"></td>
+        } else {
+            <td>@GetScore(score, RoundNumber)</td>
+        }
     }
 </tr>
